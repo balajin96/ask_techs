@@ -3,6 +3,9 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const base_url = "http://localhost:5007/api";
+// const base_url = import.meta.env.PROD
+//   ? import.meta.env.VITE_PUBLIC_SERVER_URL ?? 'https://server-crudoperation.vercel.app/api'
+//   : import.meta.env.VITE_SERVER_URL ?? 'http://localhost:5000/api';
 
 function Employeeform() {
   const [form, setForm] = useState({

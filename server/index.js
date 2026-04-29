@@ -3,10 +3,21 @@ const cors=require("cors");
 const employeeRoutes=require("./employeeRoutes")
 const app=express();
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "http://localhost:5008",
+    // "https://client-crudoperation.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use("/api",employeeRoutes)
 
-app.listen(5007,()=>{
+const PORT = process.env.PORT || 5007;
+app.listen(PORT,()=>{
     console.log("server is listening at 5007")
 })
